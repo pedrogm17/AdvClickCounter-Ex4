@@ -26,12 +26,13 @@ public interface CounterListContract {
     void onPause();
     void onDestroy();
     void onCounterButtonPressed();
+    void onCounterListCell(CounterData data);
   }
 
   interface Model {
     List<CounterData> getStoredData();
     Integer getStoredCounter();
-    void onDataFromNextScreen(String data);
+    void onDataFromNextScreen(CounterData counter, Integer value);
     void onRestartScreen(List<CounterData> data, Integer counter);
     void addCounter();
   }

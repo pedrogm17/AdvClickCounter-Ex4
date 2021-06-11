@@ -1,10 +1,13 @@
 package es.ulpgc.eite.cleancode.advclickcounter.counters;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.advclickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.advclickcounter.app.ClickToCounterState;
 import es.ulpgc.eite.cleancode.advclickcounter.app.CounterToClickState;
+import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class CounterListPresenter implements CounterListContract.Presenter {
 
@@ -88,6 +91,18 @@ public class CounterListPresenter implements CounterListContract.Presenter {
   @Override
   public void onCounterButtonPressed() {
     model.addCounter();
+    onResume();
+  }
+
+  @Override
+  public void onCounterListCell(CounterData data) {
+    Log.e(TAG, "onClickLetterListCell()");
+
+    passStateToNextScreen(
+            new CounterToClickState(data)
+    );
+
+    view.get().navigateToNextScreen();
   }
 
   private void passStateToNextScreen(CounterToClickState state) {
