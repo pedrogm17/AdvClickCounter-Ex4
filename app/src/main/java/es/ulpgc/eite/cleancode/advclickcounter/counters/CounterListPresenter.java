@@ -68,6 +68,7 @@ public class CounterListPresenter implements CounterListContract.Presenter {
     state.datasource = model.getStoredData();
     state.data = model.getStoredCounter();
 
+
     // update the view
     view.get().onDataUpdated(state);
 

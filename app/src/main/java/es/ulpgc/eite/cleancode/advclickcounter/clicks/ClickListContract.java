@@ -38,6 +38,7 @@ public interface ClickListContract {
     void onDataFromPreviousScreen(CounterData data);
     void addClick();
     void incrementClick(ClickData data);
+
   }
 
 }

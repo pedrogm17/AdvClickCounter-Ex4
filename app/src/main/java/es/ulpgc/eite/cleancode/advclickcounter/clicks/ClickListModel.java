@@ -58,7 +58,10 @@ public class ClickListModel implements ClickListContract.Model {
 
   @Override
   public void incrementClick(ClickData data){
-    data.value++;
+    this.data.set(this.data.indexOf(data),data);
+    this.data.get(this.data.indexOf(data)).value++;
     this.value++;
   }
+
+
 }

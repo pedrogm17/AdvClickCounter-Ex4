@@ -39,8 +39,7 @@ public class CounterListModel implements CounterListContract.Model {
   @Override
   public void onDataFromNextScreen(CounterData counter, Integer value) {
     // Log.e(TAG, "onDataFromNextScreen()");
-    this.data.set(value, counter);
-
+    this.data.set(data.indexOf(counter), counter);
   }
 
   public void addCounter(){
