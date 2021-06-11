@@ -1,6 +1,10 @@
 package es.ulpgc.eite.cleancode.advclickcounter.clicks;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import es.ulpgc.eite.cleancode.advclickcounter.data.ClickData;
+import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public interface ClickListContract {
 
@@ -25,10 +29,12 @@ public interface ClickListContract {
   }
 
   interface Model {
-    String getStoredData();
-    void onDataFromNextScreen(String data);
-    void onRestartScreen(String data);
-    void onDataFromPreviousScreen(String data);
+    List<ClickData> getStoredData();
+    Integer getStoredValue();
+    void onRestartScreen(List<ClickData> data);
+    void onDataFromPreviousScreen(CounterData data);
+    void addClick();
+    void incerementClick(Integer clickIndex);
   }
 
 }

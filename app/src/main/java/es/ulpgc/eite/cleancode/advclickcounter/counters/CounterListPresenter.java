@@ -61,7 +61,7 @@ public class CounterListPresenter implements CounterListContract.Presenter {
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.data);
+      model.onDataFromNextScreen(savedState.data, savedState.value);
     }
 
     // call the model and update the state
