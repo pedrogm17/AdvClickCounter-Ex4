@@ -19,7 +19,7 @@ public class CounterListScreen {
     AppMediator mediator = AppMediator.getInstance();
 
     CounterListContract.Presenter presenter = new CounterListPresenter(mediator);
-    CounterListContract.Model model = new CounterListModel(data);
+    CounterListContract.Model model = new CounterListModel();
     presenter.injectModel(model);
     presenter.injectView(new WeakReference<>(view));
 
