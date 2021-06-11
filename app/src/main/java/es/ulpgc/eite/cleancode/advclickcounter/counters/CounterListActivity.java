@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.cleancode.advclickcounter.R;
 import es.ulpgc.eite.cleancode.advclickcounter.app.AppMediator;
+import es.ulpgc.eite.cleancode.advclickcounter.clicks.ClickListActivity;
 import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class CounterListActivity
@@ -89,7 +90,7 @@ public class CounterListActivity
 
   @Override
   public void navigateToNextScreen() {
-    Intent intent = new Intent(this, CounterListActivity.class);
+    Intent intent = new Intent(this, ClickListActivity.class);
     startActivity(intent);
   }
 

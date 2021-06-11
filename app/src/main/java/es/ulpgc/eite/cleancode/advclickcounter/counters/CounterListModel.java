@@ -23,6 +23,12 @@ public class CounterListModel implements CounterListContract.Model {
   }
 
   @Override
+  public Integer getStoredCounter() {
+    // Log.e(TAG, "getStoredData()");
+    return counter;
+  }
+
+  @Override
   public void onRestartScreen(List<CounterData> data, Integer counter) {
     // Log.e(TAG, "onRestartScreen()");
     this.counter = counter;
@@ -33,6 +39,11 @@ public class CounterListModel implements CounterListContract.Model {
   public void onDataFromNextScreen(String data) {
     // Log.e(TAG, "onDataFromNextScreen()");
 
+  }
+
+  public void addCounter(){
+    CounterData counterN = new CounterData();
+    data.add(counterN);
   }
 
 }
