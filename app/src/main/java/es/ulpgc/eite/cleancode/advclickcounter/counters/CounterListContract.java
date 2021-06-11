@@ -31,7 +31,6 @@ public interface CounterListContract {
 
   interface Model {
     List<CounterData> getStoredData();
-    Integer getStoredCounter();
     void onDataFromNextScreen(CounterData counter, Integer value);
     void onRestartScreen(List<CounterData> data, Integer counter);
     void addCounter();

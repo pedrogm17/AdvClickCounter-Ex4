@@ -9,12 +9,10 @@ public class CounterListModel implements CounterListContract.Model {
 
   public static String TAG = CounterListModel.class.getSimpleName();
 
-  private Integer counter;
   private List<CounterData> data;
 
   public CounterListModel() {
     data = new ArrayList<>();
-    counter = 0;
   }
 
   @Override
@@ -23,16 +21,10 @@ public class CounterListModel implements CounterListContract.Model {
     return data;
   }
 
-  @Override
-  public Integer getStoredCounter() {
-    // Log.e(TAG, "getStoredData()");
-    return counter;
-  }
 
   @Override
   public void onRestartScreen(List<CounterData> data, Integer counter) {
     // Log.e(TAG, "onRestartScreen()");
-    this.counter = counter;
     this.data = data;
   }
 
@@ -40,6 +32,7 @@ public class CounterListModel implements CounterListContract.Model {
   public void onDataFromNextScreen(CounterData counter, Integer value) {
     // Log.e(TAG, "onDataFromNextScreen()");
     this.data.set(data.indexOf(counter), counter);
+    data.get(data.indexOf(data)).value = value;
   }
 
   public void addCounter(){

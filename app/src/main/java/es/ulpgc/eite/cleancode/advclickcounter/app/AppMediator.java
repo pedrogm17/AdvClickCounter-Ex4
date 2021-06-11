@@ -10,9 +10,6 @@ public class AppMediator  {
   private CounterListState counterListState;
   private ClickListState clickListState;
 
-  private ClickToCounterState clickToCounterState;
-  private CounterToClickState counterToClickState;
-
 
   private AppMediator() {
     counterListState = new CounterListState();
@@ -45,7 +42,7 @@ public class AppMediator  {
   }
 
   public ClickToCounterState getNextCounterScreenState() {
-    return clickToCounterState;
+    return null;
   }
 
   public void setPreviousClickScreenState(ClickToCounterState state) {
@@ -53,6 +50,6 @@ public class AppMediator  {
   }
 
   public CounterToClickState getPreviousClickScreenState() {
-    return counterToClickState;
+    return null;
   }
 }
