@@ -1,10 +1,14 @@
 package es.ulpgc.eite.cleancode.advclickcounter.clicks;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.advclickcounter.app.AppMediator;
 import es.ulpgc.eite.cleancode.advclickcounter.app.ClickToCounterState;
 import es.ulpgc.eite.cleancode.advclickcounter.app.CounterToClickState;
+import es.ulpgc.eite.cleancode.advclickcounter.data.ClickData;
+import es.ulpgc.eite.cleancode.advclickcounter.data.CounterData;
 
 public class ClickListPresenter implements ClickListContract.Presenter {
 
@@ -62,6 +66,8 @@ public class ClickListPresenter implements ClickListContract.Presenter {
 
     // call the model and update the state
     state.data = model.getStoredData();
+    state.counter = model.getStoredCounter();
+    state.value = model.getStoredValue();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -71,6 +77,9 @@ public class ClickListPresenter implements ClickListContract.Presenter {
   @Override
   public void onBackPressed() {
     // Log.e(TAG, "onBackPressed()");
+    passStateToPreviousScreen(
+            new ClickToCounterState(state.counter, state.value)
+    );
   }
 
   @Override
@@ -85,7 +94,20 @@ public class ClickListPresenter implements ClickListContract.Presenter {
 
   @Override
   public void onClickButtonPressed() {
+    model.addClick();
+    onResume();
+  }
 
+  @Override
+  public void onClickListCell(ClickData data) {
+    Log.e(TAG, "onClickLetterListCell()");
+
+//    passStateToPreviousScreen(
+//            new ClickToCounterState(data,state.value)
+//    );
+
+    model.incrementClick(data);
+    onResume();
   }
 
   private void passStateToPreviousScreen(ClickToCounterState state) {

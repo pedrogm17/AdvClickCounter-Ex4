@@ -68,12 +68,12 @@ public class ClickListActivity
 
     // deal with the datasource
     ((ListView) findViewById(R.id.clickList)).setAdapter(new ClickListAdapter(
-            this, viewModel.datasource, new View.OnClickListener() {
+            this, viewModel.data, new View.OnClickListener() {
 
           @Override
           public void onClick(View view) {
             ClickData data = (ClickData) view.getTag();
-
+            presenter.onClickListCell(data);
           }
         })
     );

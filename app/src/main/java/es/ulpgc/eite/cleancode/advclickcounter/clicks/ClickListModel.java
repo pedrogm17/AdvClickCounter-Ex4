@@ -32,6 +32,12 @@ public class ClickListModel implements ClickListContract.Model {
   }
 
   @Override
+  public CounterData getStoredCounter() {
+    // Log.e(TAG, "getStoredData()");
+    return counter;
+  }
+
+  @Override
   public void onRestartScreen(List<ClickData> data) {
     // Log.e(TAG, "onRestartScreen()");
     this.data = data;
@@ -51,7 +57,8 @@ public class ClickListModel implements ClickListContract.Model {
   }
 
   @Override
-  public void incerementClick(Integer clickIndex){
-    this.data.get(clickIndex).value = this.data.get(clickIndex).value++;
+  public void incrementClick(ClickData data){
+    data.value++;
+    this.value++;
   }
 }

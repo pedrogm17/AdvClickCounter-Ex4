@@ -26,15 +26,18 @@ public interface ClickListContract {
     void onDestroy();
 
     void onClickButtonPressed();
+
+    void onClickListCell(ClickData data);
   }
 
   interface Model {
     List<ClickData> getStoredData();
     Integer getStoredValue();
+    CounterData getStoredCounter();
     void onRestartScreen(List<ClickData> data);
     void onDataFromPreviousScreen(CounterData data);
     void addClick();
-    void incerementClick(Integer clickIndex);
+    void incrementClick(ClickData data);
   }
 
 }

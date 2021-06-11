@@ -19,7 +19,7 @@ public class ClickListScreen {
     AppMediator mediator = AppMediator.getInstance();
 
     ClickListContract.Presenter presenter = new ClickListPresenter(mediator);
-    ClickListContract.Model model = new ClickListModel(data);
+    ClickListContract.Model model = new ClickListModel();
     presenter.injectModel(model);
     presenter.injectView(new WeakReference<>(view));
 
